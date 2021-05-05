@@ -26,7 +26,7 @@ function imgParser(quantity,src) {
         const rows = $(".screenshot-image")
         if(!rows[0].attribs.src.startsWith("/") && rows[0].attribs.src && !rows[0].attribs.src.match(/i.imgur/g)){
             c--
-            let img = rows[0].attribs.src && await fetch(rows[0].attribs.src)
+            let img = await fetch(rows[0].attribs.src)
             const response = await img.arrayBuffer()
             const imgBuffer = buffer.Buffer.from(response)
             fs.writeFileSync(path.join(src,`${getCache()}.png`), imgBuffer, 'binary');
