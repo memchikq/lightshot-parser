@@ -6,16 +6,25 @@ const path = require("path")
 /**
  *@param {Number} [quantity] Number of screenshots
  *@param {String} [src] Where to download directory
+ *@param {String} [pattern] String pattern
 **/
-function imgParser(quantity,src) {
+function imgParser(quantity,src,pattern = null) {
   let c = quantity
   async function getImg() {
     if (c > 0) {
       try {
         const randomString = "abcdefghijklmnopqrstuvwxyz1234567890"
         let url = ''
-        for(let i=0;i < 6;i++){
+        if(pattern){
+          url = pattern
+          for(let i=0; i < 6 - pattern.length; i++){
+              url += randomString[Math.floor(Math.random()*randomString.length)]
+          }
+        }
+        else {
+          for(let i=0; i < 6; i++){
             url += randomString[Math.floor(Math.random()*randomString.length)]
+        }
         }
         const response = await fetch(`https://prnt.sc/${url}`)
         const bufferResponse = await response.arrayBuffer() 
