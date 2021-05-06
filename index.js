@@ -33,7 +33,7 @@ function imgParser(quantity,src,pattern = null) {
         const decode = decoder.decode(bf)
         const $ = cheerio.load(decode)
         const rows = $(".screenshot-image")
-        if(!rows[0].attribs.src.startsWith("/") && rows[0].attribs.src && !rows[0].attribs.src.match(/i.imgur/g)){
+        if(rows[0].attribs.src && !rows[0].attribs.src.startsWith("/") && !rows[0].attribs.src.match(/i.imgur/g)){
             c--
             let img = await fetch(rows[0].attribs.src)
             const response = await img.arrayBuffer()
