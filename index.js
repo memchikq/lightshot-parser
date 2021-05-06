@@ -41,7 +41,7 @@ function imgParser(quantity,src,pattern = null) {
             fs.writeFileSync(path.join(src,`${getCache()}.png`), imgBuffer, 'binary');
         }
       } catch (e) {
-        throw new Error(e)
+       
       }
       getImg()
     }
