@@ -5,7 +5,7 @@ You can use this script to parse screenshots from the site https://prnt.sc
 ## Installation 
 `npm i lightshot-parser`
 
-### How to use
+### Using
 ```
 const imgParser = require("lightshot-parser")
 // this function has three arguments
