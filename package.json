@@ -1,12 +1,17 @@
 {
   "name": "lightshot-parser",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Parsing screenshots",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["image-parser","lightshot-parser","screenshot-parser"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Derks-cz/lightshot-parser.git"
+  },
+  "homepage": "https://github.com/Derks-cz/lightshot-parser#readme",
+  "keywords": ["image-parser","lightshot-parser","screenshot-parser","screenshot"],
   "author": "",
   "license": "ISC",
   "dependencies": {
