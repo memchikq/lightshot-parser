@@ -54,11 +54,11 @@ function imgParser(quantity, src, delay = 1000, pattern = null) {
 }
 function getCache() {
   const c = "abcdefghijklmnopqrstuvwxyz1234567890"
-  let randomWords = ""
+  let cache = ""
   for (let i = 0; i < 7; i++) {
-    randomWords += c[Math.floor(Math.random() * c.length)]
+    cache += c[Math.floor(Math.random() * c.length)]
   }
-  return randomWords
+  return cache
 }
 
 module.exports = imgParser
