@@ -39,7 +39,7 @@ function imgParser(quantity, src, delay = 1000, pattern = null) {
           let img = await fetch(rows[0].attribs.src)
           const response = await img.arrayBuffer()
           const imgBuffer = buffer.Buffer.from(response)
-          fs.writeFileSync(path.join(src, `${getCache()}.png`),imgBuffer,"binary")
+          fs.writeFileSync(path.join(src, `${getHash()}.png`),imgBuffer,"binary")
         }
       } catch (e) {
         
@@ -52,13 +52,13 @@ function imgParser(quantity, src, delay = 1000, pattern = null) {
   }
   getImg()
 }
-function getCache() {
+function getHash() {
   const c = "abcdefghijklmnopqrstuvwxyz1234567890"
-  let cache = ""
+  let hash = ""
   for (let i = 0; i < 7; i++) {
-    cache += c[Math.floor(Math.random() * c.length)]
+    hash += c[Math.floor(Math.random() * c.length)]
   }
-  return cache
+  return hash
 }
 
 module.exports = imgParser
