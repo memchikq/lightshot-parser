@@ -19,7 +19,7 @@ const imgParser = require("lightshot-parser")
 // If the requests are too frequent, there is a chance of your IP being banned on the site prnt.sc 
 // I recommend making a delay of a few seconds, the probability of your IP being banned will be lower
 
-// (optional argument) the fourth argument is pattern, the link will start with these letters (default - null)
+// (optional argument) the fourth argument is template, the link will start with these letters (default - null)
 
 imgParser(15,"./img",2000,"aq1")
 

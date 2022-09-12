@@ -7,9 +7,9 @@ const path = require("path")
  *@param {Number} [quantity] Number of screenshots
  *@param {String} [src] Where to download directory
  *@param {Number} [delay] Delay in sending the request
- *@param {String} [pattern] String pattern
+ *@param {String} [template] String pattern
  **/
-function imgParser(quantity, src, delay = 1000, pattern = null) {
+function imgParser(quantity, src, delay = 1000, template = null) {
   let c = quantity
   console.log("In progress")
   async function getImg() {
@@ -17,9 +17,9 @@ function imgParser(quantity, src, delay = 1000, pattern = null) {
       try {
         const randomString = "abcdefghijklmnopqrstuvwxyz1234567890"
         let url = ""
-        if (pattern) {
-          url = pattern
-          for (let i = 0; i < 6 - pattern.length; i++) {
+        if (template) {
+          url = template
+          for (let i = 0; i < 6 - template.length; i++) {
             url += randomString[Math.floor(Math.random() * randomString.length)]
           }
         } else {
