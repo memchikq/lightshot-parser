@@ -11,6 +11,7 @@ const path = require("path")
  **/
 function imgParser(quantity, src, delay = 1000, pattern = null) {
   let c = quantity
+  console.log("In progress")
   async function getImg() {
     if (c > 0) {
       try {
@@ -39,26 +40,19 @@ function imgParser(quantity, src, delay = 1000, pattern = null) {
           let img = await fetch(rows[0].attribs.src)
           const response = await img.arrayBuffer()
           const imgBuffer = buffer.Buffer.from(response)
-          fs.writeFileSync(path.join(src, `${getHash()}.png`),imgBuffer,"binary")
+          fs.writeFileSync(path.join(src, `${url}.png`),imgBuffer,"binary")
         }
-      } catch (e) {
-        
-      }
+      } catch (e) {}
 
       setTimeout(() => {
         getImg()
       }, delay)
     }
+    else {
+      console.log("Done")
+    }
   }
   getImg()
-}
-function getHash() {
-  const c = "abcdefghijklmnopqrstuvwxyz1234567890"
-  let hash = ""
-  for (let i = 0; i < 7; i++) {
-    hash += c[Math.floor(Math.random() * c.length)]
-  }
-  return hash
 }
 
 module.exports = imgParser
